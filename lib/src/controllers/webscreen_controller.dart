@@ -20,6 +20,8 @@
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../config/app_configs.dart';
+
 class MyWebviewController extends GetxController {
   // var isLoading = true.obs; // default true, page start hote hi loader dikhega
   late WebViewController webViewController;
@@ -41,9 +43,7 @@ class MyWebviewController extends GetxController {
               // },
             ),
           )
-          ..loadRequest(
-            Uri.parse('https://new-dev-events.mysourcenetwork.com/'),
-          );
+          ..loadRequest(Uri.parse(AppConfigs.baseUrl));
   }
 }
 
