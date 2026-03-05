@@ -1,4 +1,4 @@
-package com.msn.hexa
+package com.mysourcenetwork.msn
 
 import io.flutter.embedding.android.FlutterActivity
 

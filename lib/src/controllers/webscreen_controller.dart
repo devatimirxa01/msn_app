@@ -17,6 +17,7 @@
 //   }
 // }
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -41,9 +42,17 @@ class MyWebviewController extends GetxController {
               // onPageFinished: (url) {
               //   isLoading.value = false; // loader hide
               // },
+              onWebResourceError: (error) {
+                // handle gracefully instead of raw ERR_CACHE_MISS
+                debugPrint("WebView error: ${error.description}");
+                // You can show a custom error widget or reload
+              },
             ),
           )
-          ..loadRequest(Uri.parse(AppConfigs.baseUrl));
+          ..loadRequest(
+            Uri.parse(AppConfigs.baseUrl),
+            headers: {"Cache-Control": "no-cache"},
+          );
   }
 }
 
